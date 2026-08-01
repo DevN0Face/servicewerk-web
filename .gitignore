@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtuelle Umgebung
+.venv/
+venv/
+
+# PyCharm
+.idea/
+
+# Umgebungsvariablen und Geheimnisse
+.env
+.env.*
+!.env.example
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Tests und Codequalität
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
