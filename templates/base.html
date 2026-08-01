@@ -1,0 +1,50 @@
+{% load static %}
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    {% block title %}
+      ServiceWerk Pfalz
+    {% endblock %}
+  </title>
+
+  <meta
+    name="description"
+    content="{% block meta_description %}Außenreinigung für Terrassen, Einfahrten und Gehwege in Neustadt an der Weinstraße und Umgebung.{% endblock %}"
+  >
+
+  <link
+    rel="stylesheet"
+    href="{% static 'css/app.css' %}"
+  >
+</head>
+
+<body class="flex min-h-screen flex-col">
+  <a
+    href="#main-content"
+    class="sr-only z-50 rounded-md bg-white px-4 py-2 text-slate-950 shadow focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+  >
+    Zum Inhalt springen
+  </a>
+
+  {% include "includes/header.html" %}
+
+  <main
+    id="main-content"
+    class="flex-1"
+  >
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  {% include "includes/footer.html" %}
+</body>
+</html>
