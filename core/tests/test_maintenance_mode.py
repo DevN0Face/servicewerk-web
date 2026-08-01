@@ -104,3 +104,21 @@ def test_database_rejects_additional_site_configuration(db):
             SiteConfiguration.objects.create(id=2)
 
     assert SiteConfiguration.objects.count() == 1
+
+def test_maintenance_content_is_html_escaped(client, db):
+    SiteConfiguration.objects.create(
+        maintenance_mode_enabled=True,
+        maintenance_title="<script>alert('title')</script>",
+        maintenance_message="<img src=x onerror=alert('message')>",
+    )
+
+    response = client.get(reverse("core:home"))
+    content = response.content.decode()
+
+    assert response.status_code == 503
+
+    assert "<script>" not in content
+    assert "<img src=x" not in content
+
+    assert "&lt;script&gt;" in content
+    assert "&lt;img" in content

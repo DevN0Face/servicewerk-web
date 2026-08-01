@@ -1,19 +1,205 @@
-<!DOCTYPE html>
+{% load static %}
+
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ maintenance_title }} | ServiceWerk Pfalz</title>
+
+    <meta
+        name="description"
+        content="Die Website von ServiceWerk Pfalz wird derzeit gewartet. Bald sind wir wieder für Sie erreichbar."
+    >
+
+    <meta name="theme-color" content="#306dfe">
+    <meta name="color-scheme" content="light">
     <meta name="robots" content="noindex, nofollow">
 
-    <title>{{ maintenance_title }}</title>
-</head>
-<body>
-    <main>
-        <h1>{{ maintenance_title }}</h1>
+    <meta
+        property="og:title"
+        content="{{ maintenance_title }} | ServiceWerk Pfalz"
+    >
+    <meta
+        property="og:description"
+        content="ServiceWerk Pfalz überarbeitet derzeit den Online-Auftritt."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
 
-        <div>
-            {{ maintenance_message|linebreaksbr }}
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="{% static 'core/images/favicon.ico' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'core/css/maintenance.css' %}"
+    >
+</head>
+
+<body>
+    <header class="site-header" aria-label="Kopfbereich">
+        <div class="site-header-inner">
+            <a
+                class="brand"
+                href="#start"
+                aria-label="ServiceWerk Pfalz Wartungsseite"
+            >
+                <img
+                    class="brand-logo"
+                    src="{% static 'core/images/logo.svg' %}"
+                    alt="ServiceWerk Pfalz"
+                >
+            </a>
+
+            <nav class="main-navigation" aria-label="Hauptnavigation">
+                <a href="#start">Start</a>
+                <a href="mailto:info@servicewerk-pfalz.de">Kontakt</a>
+            </nav>
         </div>
+    </header>
+
+    <main id="start" class="site-main">
+        <section
+            class="hero-section"
+            aria-labelledby="maintenance-title"
+        >
+            <div class="hero-content">
+                <p class="eyebrow">Website im Wartungsmodus</p>
+
+                <h1
+                    id="maintenance-title"
+                    class="hero-title"
+                >
+                    <span>{{ maintenance_title }}</span>
+                </h1>
+
+                <p class="hero-text">
+                    {{ maintenance_message|linebreaksbr }}
+                </p>
+            </div>
+        </section>
+
+        <section
+            id="construction"
+            class="construction-scene"
+            aria-label="Animation: Die Website wird gereinigt"
+        >
+            <div class="cleaning-stage" aria-hidden="true">
+                <div class="floating-bubble bubble-one"></div>
+                <div class="floating-bubble bubble-two"></div>
+                <div class="floating-bubble bubble-three"></div>
+
+                <div class="browser-frame">
+                    <div class="browser-topbar">
+                        <div class="browser-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="browser-url">
+                            servicewerk-pfalz.de
+                        </div>
+
+                        <div class="browser-spark"></div>
+                    </div>
+
+                    <div class="website-canvas">
+                        <div class="clean-content">
+                            <div class="mini-header">
+                                <div class="mini-logo-mark">SW</div>
+
+                                <div class="mini-nav-lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+
+                            <div class="mini-hero-block">
+                                <div class="mini-eyebrow"></div>
+                                <div
+                                    class="mini-title-line mini-title-line-large"
+                                ></div>
+                                <div class="mini-title-line"></div>
+                                <div class="mini-copy-line"></div>
+                                <div class="mini-button-line"></div>
+                            </div>
+
+                            <div class="mini-card-row">
+                                <div class="mini-card"></div>
+                                <div class="mini-card"></div>
+                                <div class="mini-card"></div>
+                            </div>
+                        </div>
+
+                        <div class="dirty-layer"></div>
+                        <div class="wipe-shine"></div>
+                        <div class="fresh-trail"></div>
+
+                        <div class="water-spray spray-one">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="water-spray spray-two">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="squeegee">
+                            <div class="squeegee-handle"></div>
+                            <div class="squeegee-neck"></div>
+                            <div class="squeegee-head"></div>
+                            <div class="squeegee-rubber"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-shadow"></div>
+            </div>
+        </section>
     </main>
+
+    <footer id="kontakt" class="site-footer">
+        <div class="site-footer-inner">
+            <div class="footer-brand">
+                <img
+                    class="footer-logo"
+                    src="{% static 'core/images/icon-logo.png' %}"
+                    alt="ServiceWerk Pfalz"
+                >
+            </div>
+
+            <address class="footer-contact">
+                <p>Neustadt an der Weinstraße und Umgebung</p>
+
+                <p>
+                    <a href="mailto:info@servicewerk-pfalz.de">
+                        info@servicewerk-pfalz.de
+                    </a>
+                </p>
+            </address>
+
+            <div class="footer-bottom">
+                <p>
+                    © {% now "Y" %} ServiceWerk Pfalz.
+                    Alle Rechte vorbehalten.
+                </p>
+
+                <p>Ehrlich geprüft. Sauber ausgeführt.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
