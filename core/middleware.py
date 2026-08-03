@@ -24,11 +24,7 @@ class MaintenanceModeMiddleware:
 
         user = getattr(request, "user", None)
 
-        if (
-            user is not None
-            and user.is_authenticated
-            and (user.is_staff or user.is_superuser)
-        ):
+        if user is not None and user.is_authenticated and (user.is_staff or user.is_superuser):
             return self.get_response(request)
 
         configuration = (
@@ -41,10 +37,7 @@ class MaintenanceModeMiddleware:
             .first()
         )
 
-        if (
-            configuration is None
-            or not configuration.maintenance_mode_enabled
-        ):
+        if configuration is None or not configuration.maintenance_mode_enabled:
             return self.get_response(request)
 
         response = render(
@@ -67,7 +60,4 @@ class MaintenanceModeMiddleware:
     def _is_admin_request(self, request: HttpRequest) -> bool:
         admin_path_without_slash = self.admin_path.rstrip("/")
 
-        return (
-            request.path == admin_path_without_slash
-            or request.path.startswith(self.admin_path)
-        )
+        return request.path == admin_path_without_slash or request.path.startswith(self.admin_path)

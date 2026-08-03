@@ -42,6 +42,7 @@ def test_enabled_maintenance_mode_returns_503_for_anonymous_user(
 
     assert "Cookie" in response.headers["Vary"]
 
+
 def test_admin_login_remains_reachable_during_maintenance(client, db):
     SiteConfiguration.objects.create(
         maintenance_mode_enabled=True,
@@ -90,11 +91,13 @@ def test_authenticated_non_staff_user_still_sees_maintenance_page(
 
     assert response.status_code == 503
 
+
 def test_missing_configuration_allows_normal_website(client, db):
     response = client.get(reverse("core:home"))
 
     assert response.status_code == 200
     assert "Außenreinigung" in response.content.decode()
+
 
 def test_database_rejects_additional_site_configuration(db):
     SiteConfiguration.objects.create()
@@ -104,6 +107,7 @@ def test_database_rejects_additional_site_configuration(db):
             SiteConfiguration.objects.create(id=2)
 
     assert SiteConfiguration.objects.count() == 1
+
 
 def test_maintenance_content_is_html_escaped(client, db):
     SiteConfiguration.objects.create(

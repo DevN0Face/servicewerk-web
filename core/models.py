@@ -18,14 +18,11 @@ class SiteConfiguration(models.Model):
     maintenance_title = models.CharField(
         max_length=200,
         default="Wir sind bald wieder für Sie da.",
-        verbose_name="Überschrift der Wartungsseite"
+        verbose_name="Überschrift der Wartungsseite",
     )
 
     maintenance_message = models.TextField(
-        default=(
-            "Unsere Website wird derzeit gewartet. "
-            "Bitte versuchen Sie es später erneut."
-        ),
+        default=("Unsere Website wird derzeit gewartet. Bitte versuchen Sie es später erneut."),
         verbose_name="Text der Wartungsseite",
     )
 
@@ -39,8 +36,7 @@ class SiteConfiguration(models.Model):
         verbose_name_plural = "Website-Konfiguration"
         constraints = [
             models.CheckConstraint(
-                condition=models.Q(id=1),
-                name="core_site_configuration_singleton"
+                condition=models.Q(id=1), name="core_site_configuration_singleton"
             ),
         ]
 

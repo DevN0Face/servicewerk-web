@@ -35,3 +35,4 @@ htmlcov/
 # Betriebssystem
 .DS_Store
 Thumbs.db
+cmds.ps1
