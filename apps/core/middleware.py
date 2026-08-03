@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.cache import add_never_cache_headers, patch_vary_headers
 
-from core.models import SiteConfiguration
+from apps.core.models import SiteConfiguration
 
 RETRY_AFTER_SECONDS = 3600
 

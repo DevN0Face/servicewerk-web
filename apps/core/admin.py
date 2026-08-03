@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.http import HttpRequest
 
-from core.models import SiteConfiguration
+from apps.core.models import SiteConfiguration
 
 
 @admin.register(SiteConfiguration)

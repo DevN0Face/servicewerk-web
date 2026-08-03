@@ -48,7 +48,7 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    "core.apps.CoreConfig",
+    "apps.core.apps.CoreConfig",
 ]
 
 THIRD_PARTY_APPS = []
@@ -65,7 +65,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "core.middleware.MaintenanceModeMiddleware",
+    "apps.core.middleware.MaintenanceModeMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]

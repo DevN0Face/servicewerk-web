@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.test import RequestFactory
 from django.urls import reverse
 
-from core.admin import SiteConfigurationAdmin
-from core.models import SiteConfiguration
+from apps.core.admin import SiteConfigurationAdmin
+from apps.core.models import SiteConfiguration
 
 
 def test_site_configuration_can_only_be_added_once(

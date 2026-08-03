@@ -2,7 +2,7 @@ import pytest
 from django.db import IntegrityError, transaction
 from django.urls import reverse
 
-from core.models import SiteConfiguration
+from apps.core.models import SiteConfiguration
 
 
 def test_disabled_maintenance_mode_allows_normal_website(client, db):
