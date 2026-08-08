@@ -39,3 +39,13 @@ htmlcov/
 .DS_Store
 Thumbs.db
 cmds.ps1
+
+# Runtime uploads
+media/*
+!media/.gitkeep
+
+# Collected static files
+staticfiles/
+
+# Generated frontend assets
+static/css/app.css
