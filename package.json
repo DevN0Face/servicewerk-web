@@ -5,8 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "css:dev": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./static/css/app.css --watch",
-  "css:build": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./static/css/app.css --minify"
+  "dev": "npm run css:dev",
+  "build": "npm run css:build",
+  "css:dev": "npx @tailwindcss/cli -i ./frontend/src/css/input.css -o ./static/css/app.css --watch",
+  "css:build": "npx @tailwindcss/cli -i ./frontend/src/css/input.css -o ./static/css/app.css --minify"
 },
   "keywords": [],
   "author": "",
